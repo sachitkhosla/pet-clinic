@@ -207,6 +207,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-actuator-autoconfigure</artifactId>
+		    <version>2.3.2.RELEASE</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -301,6 +306,24 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+			             <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>5.3.0</version>
+                <configuration>
+                    <format>ALL</format>
+                    <failBuildOnCVSS>7</failBuildOnCVSS>
+                    <cveValidForHours>168</cveValidForHours>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
 		</plugins>
 	</build>
 
